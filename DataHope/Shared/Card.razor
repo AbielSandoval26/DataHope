@@ -1,0 +1,120 @@
+﻿
+
+<MudGrid Spacing="1" Justify="Justify.SpaceBetween" Class="pa-2">
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="5">
+            <MudCardContent>
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 1</MudText>
+                <MudText Typo="Typo.body2">
+                    Descripción del servicio 1...
+                </MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="5">
+            <MudCardContent>
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 2</MudText>
+                <MudText Typo="Typo.body2">
+                    Descripción del servicio 2...
+                </MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="5">
+            <MudCardContent>
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 3</MudText>
+                <MudText Typo="Typo.body2">
+                    Descripción del servicio 3...
+                </MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="5">
+            <MudCardContent>
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 4</MudText>
+                <MudText Typo="Typo.body2">
+                    Descripción del servicio 4...
+                </MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="5">
+            <MudCardContent>
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 5</MudText>
+                <MudText Typo="Typo.body2">
+                    Descripción del servicio 5...
+                </MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="5">
+            <MudCardContent>
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 6</MudText>
+                <MudText Typo="Typo.body2">
+                    Descripción del servicio6...
+                </MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <!-- Agrega más elementos MudItem según sea necesario -->
+</MudGrid>
+
+
+    @*  <MudCardActions>
+        <MudGrid Spacing="1" Justify="Justify.SpaceBetween" Class="pa-2">
+        <MudItem xs="8">
+        @if (item.ShowPrice)
+        {
+        <MudText Style="font-weight:bold">@priceFormatted</MudText>
+        }
+        else
+        {
+        <MudText  Class="text-muted">@priceNotAvailableMessage</MudText>
+        }
+        </MudItem>
+        @if (itemExist)
+        {
+        <MudItem Class="pr-4 align-items-center">
+        <StepInput QuantityItem="quantityItem" AddStep="@(()=>{quantityItem+=1;})" SubtractStep="@(()=>{quantityItem-=1;})" SubtractAllStep="SubtractAll" AddRangeStep="Add" />
+        </MudItem>
+        }
+        <MudItem xs="12" lg="@(itemExist ? 12 : 4)" sm="@(itemExist ? 12 : 4)">
+        @if (itemExist)
+        {
+        <MudGrid>
+
+        <MudItem xs="6">
+        <MudButton FullWidth="true" Variant="Variant.Filled" Color="Color.Success" OnClick="@(()=>Add())">
+        <MudIcon Icon="@Icons.Material.Rounded.Check" />
+        </MudButton>
+        </MudItem>
+
+        <MudItem xs="6">
+        <MudButton FullWidth="true" Variant="Variant.Filled" Color="Color.Error" OnClick="SubtractAll">
+        <MudIcon Icon="@Icons.Material.Rounded.RemoveShoppingCart" />
+        </MudButton>
+        </MudItem>
+
+        </MudGrid>
+        }
+        else
+        {
+        <MudButton FullWidth="true" Variant="Variant.Filled" Color="Color.Info" OnClick="AddPreviewItem">
+        <MudIcon Icon="@Icons.Material.Rounded.AddShoppingCart" />
+        </MudButton>
+        }
+        </MudItem>
+        </MudGrid>
+
+
+        </MudCardActions> *@
+
+    @code {
+    [Parameter]
+    public int CountService { get; set; }
+}

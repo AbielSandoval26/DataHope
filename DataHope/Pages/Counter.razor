@@ -1,0 +1,48 @@
+﻿@page "/counter"
+@using DataHope.Data
+@using LibraryDataModel
+
+@inject Data.UserPreferencesService userPreferencesService
+@inject AuthenticationStateProvider authenticationStateProvider
+
+@attribute [Authorize]
+
+<AuthorizeView>
+    <Authorized>
+        <h1>Counter</h1>
+
+        <p>Current count: @currentCount</p>
+        @if (!string.IsNullOrEmpty(userPreferencesModel.Id))
+        {
+            <p>Correo: @userPreferencesModel.Id</p>
+            <p>Tema: @userPreferencesModel.Theme</p>
+        }
+        
+
+        <button class="btn btn-primary" @onclick="getUser">Click me</button>
+    </Authorized>
+
+</AuthorizeView> 
+
+
+
+@code {
+    private int currentCount = 0;
+    UserPreferencesModel userPreferencesModel = new UserPreferencesModel();
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private async Task<UserPreferencesModel> getUser()
+    {
+        // var userPreferencesModel = new UserPreferencesModel();
+        // var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
+        var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
+        // var _email = HelperFunctions.GetAuthenticatedUserEmail(authState);
+        var email = authState.User.Identity.Name;
+        userPreferencesModel = await userPreferencesService.GetUserPreferences(email);
+        return userPreferencesModel;
+    }
+}

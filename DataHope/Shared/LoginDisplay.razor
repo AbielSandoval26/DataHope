@@ -1,0 +1,70 @@
+﻿
+@*
+<MudLayoutClass="d-flex justify-content-end ">
+
+    <MudAppBar Color="Color.Primary">
+
+        <MudMenu Icon="@Icons.Material.Filled.PeopleAlt" Color="Color.Inherit" Class="d-flex justify-content-end ">
+            <AuthorizeView>
+                 <Authorized>
+                    <MudMenuItem>
+                        <a href="AzureAD/Account/SignOut">Log Out</a>
+                    </MudMenuItem>
+                 </Authorized>
+                <NotAuthorized>
+                    <a href="AzureAD/Account/SignIn">Log in</a>
+                </NotAuthorized>
+
+
+            </AuthorizeView>
+
+
+
+        </MudMenu>
+    </MudAppBar>
+
+</MudLayoutClass> *@
+
+
+
+<AuthorizeView>
+    <Authorized>
+        @*         <MudThemeProvider />
+        <MudDialogProvider />
+        <MudLayout>
+        <MudAppBar Color="Color.Primary">
+
+        <MudMenu Icon="@Icons.Material.Filled.PeopleAlt" Color="Color.Inherit" Style="d-flex justify-content-end">
+        <MudMenuItem>
+        <a href="AzureAD/Account/SignOut">Log Out</a>
+        </MudMenuItem>
+        </MudMenu>
+        </MudAppBar>
+        </MudLayout> *@
+        @*                 <MudMenu>
+        <ActivatorContent>
+        <MudAvatar Image="https://cdn.iconscout.com/icon/free/png-256/free-user-1648810-1401302.png?f=webp" />
+        </ActivatorContent>
+        <ChildContent>
+        @GetName(context)
+        <MudMenuItem Href="AzureAD/Account/SignOut">Cerrar Sesion</MudMenuItem>
+        </ChildContent>
+        </MudMenu> *@
+
+        @GetName(context)
+        <a href="AzureAD/Account/SignOut">Log out</a>
+        @*  @context.User.Identity.Name!   *@
+    </Authorized>
+    <NotAuthorized>
+        <a href="AzureAD/Account/SignIn">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+    private string GetName(AuthenticationState authState)
+    {
+        string welcomeMessage = $"Biencvenido/a {authState.User.Claims.FirstOrDefault(x => x.Type == "name")?.Value}";
+        return welcomeMessage;
+    }
+}

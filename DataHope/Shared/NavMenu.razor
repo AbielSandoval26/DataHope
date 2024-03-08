@@ -1,0 +1,85 @@
+﻿@inject AuthenticationStateProvider authenticationStateProvider
+
+@* <div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">TestApp</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </li> *@
+@*         <li class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            </NavLink>
+        </li> *@
+
+@*         <li class="nav-item px-3">
+            <NavLink class="nav-link" href="aboutUs">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Acerca de Nosotros
+            </NavLink>
+        </li>
+    </ul>
+</div> *@
+
+@* div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">TestApp</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div> *@
+
+
+<MudNavMenu>
+
+    <MudNavLink IconColor="Color.Warning" Href="/" Match="NavLinkMatch.All" Class="mb-5">TestApp</MudNavLink>
+
+    <MudNavLink Href="aboutUs" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-2" /> Acerca de Nosotros</MudNavLink>
+    <MudNavLink Href="services" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-2" /> Servicios</MudNavLink>
+    <MudNavLink Href="contactForm" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-2" /> Contactanos</MudNavLink>
+    @if (isAuthenticatedUser())
+    {
+        <MudNavLink Href="counter" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-2" /> Counter</MudNavLink>
+        <MudNavLink Href="AzureAD/Account/SignOut" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Rounded.Logout" Class="mr-2" /> Logout</MudNavLink>
+
+    }
+    else
+    {
+        <MudNavLink Href="AzureAD/Account/SignIn" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Rounded.Login" Class="mr-2" /> Log In</MudNavLink>
+
+    }
+
+
+</MudNavMenu>
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private bool isAuthenticatedUser()
+    {
+        var user = authenticationStateProvider.GetAuthenticationStateAsync();
+
+
+        return user.Result.User.Identity.IsAuthenticated;
+    }
+}

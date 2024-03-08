@@ -1,0 +1,93 @@
+﻿@page "/contactForm"
+@inject ISnackbar Snackbar
+
+<MudContainer Fixed=true Class="row d-flex justify-content-center ">
+
+    <MudItem lg="4" xxl="4" Class="col">
+        <MudCard Class="mt-8">
+            <MudText Typo="Typo.h3">Contactanos</MudText>
+            <MudForm Model="@model" @ref="@form">
+                <MudCardContent>
+                    <MudTextField @bind-Value="model.Name"
+                                  For="@(() => model.Name)"
+                                  Immediate="true"
+                                  Label="Nombre" />
+
+                    <MudTextField @bind-Value="model.Email"
+                                  For="@(() => model.Email)"
+                                  Immediate="true"
+                                  Label="Correo Electronico" />
+
+                    <MudTextField @bind-Value="model.Message"
+                                  For="@(() => model.Message)"
+                                  Immediate="true"
+                                  Label="Mensaje" />
+
+                    <MudMainContent Class="pt-2 ">
+                        <MudContainer Class="mt-6">
+                            <MudSelect Label="Seleccione el curso que desee" @bind-Value="model.CourseInfo">
+                                <MudSelectItem Value="@("Curso 1")">Curso 1</MudSelectItem>
+                                <MudSelectItem Value="@("Curso 2")">Curso 2</MudSelectItem>
+                                <MudSelectItem Value="@("Curso 3")">Curso 3</MudSelectItem>
+                            </MudSelect>
+                        </MudContainer>
+                    </MudMainContent>
+
+
+                </MudCardContent>
+            </MudForm>
+            <MudCardActions>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Submit())">Order</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    <MudItem Class="col">
+        <MudText Typo="Typo.h4" Class="mb-5 mt-5">Informacion de contacto</MudText>
+        <MudText Typo="Typo.body1">Direccion :  C/......</MudText>
+        <MudText Typo="Typo.body1">Correo Electronico :  Correo@domain.com</MudText>
+        <MudText Typo="Typo.body1">Tel. 809-000-0000 EXT. 000</MudText>
+    </MudItem>
+</MudContainer>
+
+
+
+
+@code {
+    MudForm form;
+
+    OrderModel model = new OrderModel();
+
+    public class OrderModel
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Message { get; set; }
+        public string CourseInfo { get; set; }
+    }
+
+    public class AddressModel
+    {
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+    }
+
+    public class OrderDetailsModel
+    {
+        public string Description { get; set; }
+        public decimal Offer { get; set; }
+    }
+
+    private async Task Submit()
+    {
+
+        var test = model;
+        Snackbar.Add("Solicitud enviada!", Severity.Success);
+
+        model = new();
+
+
+    }
+
+
+}

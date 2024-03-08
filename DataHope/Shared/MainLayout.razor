@@ -1,0 +1,179 @@
+﻿@inherits LayoutComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject ISnackbar Snackbar
+
+@* <MudLayout>
+    <MudAppBar Color="Color.Primary">
+        <MudIconButton Disabled="false" Style="z-index:100" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+    </MudAppBar>
+    <MudDrawer @bind-Open="@_drawerOpen" Breakpoint="Breakpoint.Xxl">
+        <br />
+        <br />
+        <NavMenu />
+    </MudDrawer>
+</MudLayout>
+
+
+ *@
+<AuthorizeView>
+
+    <Authorized>
+
+        <MudThemeProvider />
+        <MudDialogProvider />
+        <MudSnackbarProvider />
+
+        <MudLayout>
+            <MudAppBar Color="Color.Dark">
+                <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+
+                <span class="text-2xl text-gray-900 font-semibold ml-3" style="cursor:pointer">
+                    <a href="/">
+                        <MudImage Src="@imageLoco" Style="width:50px" />
+                    </a>
+                </span>
+                <MudSpacer />
+
+                <MudMenu Icon="@Icons.Material.Filled.PeopleAlt" Color="Color.Inherit">
+                    <MudMenuItem><a href="AzureAD/Account/SignOut">Logout</a></MudMenuItem>
+                </MudMenu>
+            </MudAppBar>
+            <MudDrawer @bind-Open="@_drawerOpen" Breakpoint="Breakpoint.Xxl">
+                <NavMenu />
+            </MudDrawer>
+            @if (true)
+            {
+                <MudContainer Class="mb-10" Style="display:flex;flex-direction:column;min-height:100vh">
+
+                    <MudMainContent Class="mb-2 align-center" Style="flex:1">
+
+                        @Body
+
+                    </MudMainContent>
+                </MudContainer>
+                <Footer />
+            }
+
+        </MudLayout>
+    </Authorized>
+     <NotAuthorized>
+        <MudThemeProvider />
+        <MudDialogProvider />
+        <MudSnackbarProvider />
+        <MudLayout>
+
+            
+            <MudAppBar Color="Color.Dark">
+                <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+
+                <span class="text-2xl text-gray-900 font-semibold ml-3" style="cursor:pointer">
+                    <a href="/">
+                        <MudImage Src="@imageLoco" Style="width:50px" />
+                    </a>
+                </span>
+                <MudSpacer />
+
+                <MudMenu Icon="@Icons.Material.Filled.PeopleAlt" Color="Color.Inherit">
+                    <MudMenuItem><a href="AzureAD/Account/SignIn">LogIn</a></MudMenuItem>
+                </MudMenu>
+            </MudAppBar>
+            <MudDrawer @bind-Open="@_drawerOpen" Color="Color.Dark" Breakpoint="Breakpoint.Xxl">
+                <NavMenu />
+            </MudDrawer>
+
+            <MudContainer Class="mb-10" Style="display:flex;flex-direction:column;min-height:100vh">
+
+                <MudMainContent Class="mb-2 align-center" Style="flex:1">
+
+                    @Body
+
+                </MudMainContent>
+            </MudContainer>
+            <Footer />
+
+            @* <MudContainer>
+
+                <MudContainer Class="pa-10">
+                    <MudText Typo="Typo.h3" Style="cursor:pointer;" Class="text-lg-lg text-md-md text-sm-sm text-xs-xs" Align="Align.Center">HOLA</MudText>
+                </MudContainer>
+
+                <MudGrid>
+
+                    <MudItem md="6" xs="12">
+
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h6">Usuarios Existentes</MudText>
+                                </CardHeaderContent>
+                                <CardHeaderActions>
+                                    <MudIconButton Icon="@Icons.Material.Filled.VerifiedUser" Color="Color.Default" />
+                                </CardHeaderActions>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText>Si es usuario existente, realice el login ahora para entrar.</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Variant="Variant.Filled" Color="Color.Info" Href="AzureAD/Account/SignIn">LOG IN</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+
+                    <MudItem md="6" xs="12">
+
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.h6">Usuarios nuevos</MudText>
+                                </CardHeaderContent>
+                                <CardHeaderActions>
+                                    <MudIconButton Icon="@Icons.Material.Filled.RecentActors" Color="Color.Default" />
+                                </CardHeaderActions>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText>Si es un usuario nuevo, por favor siga a la página de Login y utilice la opción "Sign up now" para crear un usuario nuevo. Asegúrese de utilizar el mismo correo al que le dieron acceso, ya que de lo contrario no podrá visualizar las informaciones correspondientes.</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton Variant="Variant.Filled" Color="Color.Info" Href="AzureAD/Account/SignIn">REGISTRARSE AHORA</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+
+                </MudGrid>
+
+            </MudContainer> *@
+        </MudLayout>
+    </NotAuthorized>
+
+
+    </AuthorizeView>
+
+
+
+    @*
+<div class="sidebar">
+
+</div> *@
+    @*
+<div class="main">
+    <div class="top-row px-4 auth"> *@
+    @* <LoginDisplay />  *@
+    @*         <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+    </div>
+
+    <div class="content px-4">
+        @Body
+    </div>
+</div> *@
+
+@code {
+    bool _drawerOpen;
+
+    string imageLoco = "https://pbs.twimg.com/profile_images/1311763847775125516/mvBRhlDs_400x400.jpg";
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+}
+
