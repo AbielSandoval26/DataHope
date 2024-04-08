@@ -1,0 +1,45 @@
+﻿@page "/article/{id}"
+@using LibraryDataModel
+
+@inject Data.BlogService blogService
+@inject AuthenticationStateProvider authenticationStateProvider
+
+
+@if (Blog.Id is not null)
+{
+    <MudContainer Class="container">
+
+        <MudText Typo="Typo.h3">@Blog.Title</MudText>
+        <br />
+
+        @* <img class="w-100" src="@Blog.Image" /> *@
+
+        <MudImage Class="w-100" Src="@Blog.Image"/>
+
+        @foreach (var item in @Blog.Body.Split("<br />"))
+        {
+            <MudText Class="mt-3 mb-2" Align="Align.Justify">@item</MudText>
+            @* <br/> *@
+            @* <p class="jus">@item</p> *@
+        }
+
+    </MudContainer>
+}
+
+
+
+
+@code {
+
+    [Parameter]
+    public string id { get; set; }
+
+    BlogModel Blog = new BlogModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var test = await blogService.BlogByID(id);
+
+        Blog = await blogService.BlogByID(id);
+    }
+}

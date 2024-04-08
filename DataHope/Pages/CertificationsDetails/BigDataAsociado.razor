@@ -1,0 +1,207 @@
+﻿@page "/certifications/bigDataAsociado"
+@inject IJSRuntime jsRuntime
+
+
+
+<MudContainer Class="mt-10">
+    <MudContainer Class="row">
+        <MudContainer  class="col-8">
+            <MudText Align="Align.End" Style="color:grey"><a href="/" class="color-hover" style="text-decoration:none; color:grey">Inicio</a> / <a href="/certifications" class="color-hover" style="text-decoration:none; color:grey">Formaciones</a> / Certificado en Big Data</MudText>
+            <MudText Typo="Typo.h3" Color="Color.Warning">Certificado en Big Data</MudText>
+            <MudDivider />
+            <br/>
+            <br/>
+            <MudText Typo="Typo.body1" Align="Align.Justify">
+                <a class="font-weight-bold">Asociado certificado de Big Data: BDCA</a> evalúa los conocimientos y habilidades que se utilizan para comprender datos de gran tamaño en relación con la velocidad, el volumen o la variedad de datos. Cubre las posibles fuentes de datos que se pueden utilizar para resolver problemas comerciales, técnicas y conceptos involucrados en la captura, almacenamiento, gestión y análisis de big data, incluida la minería de datos y el análisis predictivo.
+            </MudText>
+        </MudContainer>
+        <MudContainer class="col-4">
+            <MudImage Src="https://certjoin.com/wp-content/uploads/2023/04/Big-Data-Certified-Associate-%E2%80%93-BDCA.png" Style="height:300px"/>
+        </MudContainer>
+        
+    </MudContainer>
+</MudContainer>
+
+<br/>
+<br/>
+
+<MudDivider />
+
+<MudContainer Class="row">
+    <MudContainer class="col-8 mt-5">
+        <MudText Align="Align.Start" Typo="Typo.h3">Acerca de esta certificación</MudText>
+      
+        <br />
+        <br />
+        
+        <MudGrid Spacing="1">
+            <MudButton id="btnDescription" Class="boton ml-2" Style=@(isShowDescription ? "font-size:small; background-color:darkorange" : "font-size:small") Variant="Variant.Filled" OnClick="@(() => showSection(1))">Descripción</MudButton>
+            <MudButton id="btnMainTopics" Class="boton ml-2" Style=@(isShowMainTopics ? "font-size:small; background-color:darkorange" : "font-size:small") Variant="Variant.Filled" OnClick="@(() => showSection(2))">Temas Principales</MudButton>
+            <MudButton id="btnWhoisThisCertification" Class="boton ml-2" Style=@(isShowWhoisThisCertification ? "font-size:small; background-color:darkorange" : "font-size:small") Variant="Variant.Filled" OnClick="@(() => showSection(3))">¿Para quien es esta certificación?</MudButton>
+            <MudButton id="btnPreviousRequirement" Class="boton ml-2" Style=@(isShowPreviousRequirement ? "font-size:small; background-color:darkorange" : "font-size:small") Variant="Variant.Filled" OnClick="@(() => showSection(4))">Requisitos previos</MudButton>
+@*             <MudButton Variant="Variant.Filled" OnClick="@(() => ChangeColor())">Descripción</MudButton>
+            <MudButton Variant="Variant.Filled" OnClick="@(() => ChangeColor())">Descripción</MudButton> *@
+        </MudGrid>
+       
+
+        <br/>
+        <br/>
+
+        @if (isShowDescription)
+        {
+            <MudText Typo="Typo.body1" Align="Align.Justify">
+                La versión en español de este folleto de certificación se puede descargar aquí. Asociado Certificado en Big Data – BDCA
+            </MudText>
+            <br/>
+            <MudText Typo="Typo.h4" Color="Color.Warning" Align="Align.Justify">
+                Detalles del examen:
+            </MudText>
+            <br />
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning"/>
+                <a class="font-weight-bold">Nombre del examen:</a> Asociado certificado de Big Data - BDCA
+            </MudText>
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                <a class="font-weight-bold">Formato del examen:</a> preguntas de opción múltiple
+            </MudText>
+           <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                <a class="font-weight-bold">Entrega del examen:</a> basado en web(navegador único), libro cerrado, sin asistencia externa, cronometrado
+            </MudText>
+          <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                <a class="font-weight-bold">Duración del examen:</a> una vez que comienza el examen, los estudiantes tienen 60 minutos para completarlo.
+            </MudText>
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                <a class="font-weight-bold">Número de preguntas:</a> 40
+            </MudText>
+                
+                <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                <a class="font-weight-bold">Puntaje de aprobación:</a> 65 %
+            </MudText>
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                <a class="font-weight-bold">Idiomas disponibles:</a> español
+            </MudText> 
+        }
+
+        @if (isShowMainTopics)
+        {
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                Fundamentos de Big Data.
+            </MudText>
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                Grandes fuentes de datos.
+            </MudText>
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                Minería de datos: conceptos y herramientas.
+            </MudText>
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                Descubra cómo los científicos de datos utilizan herramientas como Hadoop y MongoDB.
+            </MudText>
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                Ejercicios prácticos utilizando herramientas como Hadoop y MongoDB.
+            </MudText>
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Color="Color.Warning" />
+                Explore la visualización de datos con herramientas gráficas.
+            </MudText>
+        }
+
+        @if (isShowWhoisThisCertification)
+        {
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                Big Data Certified Associate es para ingenieros de sistemas, ingenieros de software, desarrolladores de aplicaciones, arquitectos de TI, administradores de sistemas y científicos de datos.
+            </MudText>
+        }
+
+        @if (isShowPreviousRequirement)
+        {
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                Los siguientes requisitos previos no son específicos para el ingreso al examen; sin embargo, se recomiendan encarecidamente para quienes deseen realizar el BDCA:
+            </MudText>
+            <br/>
+            <MudText Typo="Typo.body2" Align="Align.Justify">
+                Finalización exitosa de  la capacitación <a class="font-weight-bold">Big Data  Certified Associate – BDCA</a>. Puede encontrar una lista de nuestras organizaciones de formación acreditadas en  Nuestros socios
+            </MudText>
+        }
+
+       
+    </MudContainer>
+    <MudContainer class="col-4 mt-15 d-flex flex-column align-items-center">
+
+        <MudButton Class="ml-2 mb-3" Style="font-size:small" Variant="Variant.Filled" Color="Color.Warning">Obtener mas informacion</MudButton>
+
+        <MudText><MudImage Src="Images/certificate.ico" Height="20" Class="mr-2" />CERTIFICARTE</MudText>
+        <MudText><MudImage Src="Images/clock.ico" Height="20" Class="mr-2" />APRENDE A TU RITMO</MudText>
+        <MudText><MudImage Src="Images/mobile.ico" Height="20" Class="mr-2" />DISPOSITIVOS MÚLTIPLES</MudText>
+        <MudText><MudImage Src="Images/headphones.ico" Height="20" Class="mr-2" />SOMOS PARA TI</MudText>
+
+
+        @* <MudImage Src="https://certjoin.com/wp-content/uploads/2023/04/Big-Data-Certified-Associate-%E2%80%93-BDCA.png" Style="height:300px" /> *@
+    </MudContainer>
+
+</MudContainer>
+
+@* <MudContainer Class="mt-10">
+            
+    
+</MudContainer> *@
+
+
+
+@code {
+
+    private bool isShowDescription = true;
+    private bool isShowMainTopics;
+    private bool isShowWhoisThisCertification;
+    private bool isShowPreviousRequirement;
+
+    public async void showSection(int btn)
+    {
+
+        if (btn == 1)
+        {
+            isShowDescription = true;
+            isShowMainTopics = false;
+            isShowWhoisThisCertification = false;
+            isShowPreviousRequirement = false;
+
+        }
+        if (btn == 2)
+        {
+            isShowMainTopics = true;
+            isShowDescription = false;
+            isShowWhoisThisCertification = false;
+            isShowPreviousRequirement = false;
+        }
+        if (btn == 3)
+        {
+            isShowWhoisThisCertification = true;
+            isShowDescription = false;
+            isShowMainTopics = false;
+            isShowPreviousRequirement = false;
+        }
+        if (btn == 4)
+        {
+            isShowPreviousRequirement = true;
+            isShowWhoisThisCertification = false;
+            isShowDescription = false;
+            isShowMainTopics = false;
+        }
+
+        // await jsRuntime.InvokeVoidAsync("ChangeColor");
+    }
+    public void ChangeColor()
+    {
+        
+    }
+}

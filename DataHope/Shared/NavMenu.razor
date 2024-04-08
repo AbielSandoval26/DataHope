@@ -1,4 +1,5 @@
 ﻿@inject AuthenticationStateProvider authenticationStateProvider
+@* @inject Helper.StateContainer stateContainer *@
 
 @* <div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">TestApp</a>
@@ -48,6 +49,7 @@
     <MudNavLink Href="aboutUs" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-2" /> Acerca de Nosotros</MudNavLink>
     <MudNavLink Href="services" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-2" /> Servicios</MudNavLink>
     <MudNavLink Href="contactForm" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-2" /> Contactanos</MudNavLink>
+    <MudNavLink Href="blog" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-2" /> Blog</MudNavLink>
     @if (isAuthenticatedUser())
     {
         <MudNavLink Href="counter" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Filled.Groups" Class="mr-2" /> Counter</MudNavLink>
@@ -56,9 +58,12 @@
     }
     else
     {
+        
         <MudNavLink Href="AzureAD/Account/SignIn" Match="NavLinkMatch.Prefix"> <MudIcon Icon="@Icons.Material.Rounded.Login" Class="mr-2" /> Log In</MudNavLink>
 
     }
+
+
 
 
 </MudNavMenu>
@@ -79,6 +84,10 @@
     {
         var user = authenticationStateProvider.GetAuthenticationStateAsync();
 
+        // if (!user.Result.User.Identity.IsAuthenticated)
+        // {
+        //     stateContainer.isExistUserInCosmosDB = false;
+        // }
 
         return user.Result.User.Identity.IsAuthenticated;
     }

@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MudBlazor.Services;
+using Microsoft.JSInterop;
 
 namespace DataHope
 {
@@ -54,13 +55,18 @@ namespace DataHope
             MyConfiguration options = new MyConfiguration();
             Configuration.Bind("MyConfiguration", options);
             services.AddSingleton<MyConfiguration>(options);
-            var _cosmosStoreSettings = new CosmosStoreSettings(options.CosmosDatabaseName, options.CosmosEndpointURL, options.CosmosAPIKey);
+            //var _cosmosStoreSettings = new CosmosStoreSettings(options.CosmosDatabaseName, options.CosmosEndpointURL, options.CosmosAPIKey);
 
             // instantiate user preferences service
-            ICosmosStore<UserPreferencesModel> cosmosStoreUserPreferencesModel = new CosmosStore<UserPreferencesModel>(_cosmosStoreSettings);
-            UserPreferencesService userPreferencesService = new UserPreferencesService(cosmosStoreUserPreferencesModel);
-            services.AddSingleton<UserPreferencesService>(userPreferencesService);
+            //ICosmosStore<UserPreferencesModel> cosmosStoreUserPreferencesModel = new CosmosStore<UserPreferencesModel>(_cosmosStoreSettings);
+            //UserPreferencesService userPreferencesService = new UserPreferencesService(cosmosStoreUserPreferencesModel);
+            //services.AddSingleton<UserPreferencesService>(userPreferencesService);
 
+
+            //// instantiate blog service
+            //ICosmosStore<BlogModel> cosmosStoreBlogModel = new CosmosStore<BlogModel>(_cosmosStoreSettings);
+            //BlogService blogService = new BlogService(cosmosStoreBlogModel);
+            //services.AddSingleton<BlogService>(blogService);
 
             services.AddSingleton<WeatherForecastService>();
         }

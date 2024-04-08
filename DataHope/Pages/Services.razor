@@ -1,21 +1,26 @@
 ﻿@page "/services"
-
+<style>
+    body {
+        background-image: url('./Images/background.png');
+        background-size: 100%;
+    }
+</style>
 
 @* <h3>Servicios ofrecido</h3> *@
 
-<MudContainer Class="mb-8 mt-3" Fixed=true>
-    <MudText Typo="Typo.h4">Servicios ofrecidos</MudText>
+<MudContainer Class="mb-8 mt-4" Fixed=true>
+    <MudText Typo="Typo.h4" Class="text-white">Servicios ofrecidos</MudText>
 
-    <MudItem Class="mb-5">
+    <MudItem Class="mb-5 mt-3">
         <Card />
     </MudItem>
 
-    <MudText Typo="Typo.h4">Casos de estudio o proyectos destacados</MudText>
+    @* <MudText Typo="Typo.h4">Casos de estudio o proyectos destacados</MudText> *@
 
-
+@* 
     <MudItem>
         <Card />
-    </MudItem>
+    </MudItem> *@
 
 </MudContainer>
 

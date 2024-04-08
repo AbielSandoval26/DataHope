@@ -1,120 +1,147 @@
-﻿
+﻿@inject NavigationManager Navigation
 
 <MudGrid Spacing="1" Justify="Justify.SpaceBetween" Class="pa-2">
-    <MudItem xs="12" sm="6" md="4">
-        <MudCard Elevation="5">
-            <MudCardContent>
-                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 1</MudText>
-                <MudText Typo="Typo.body2">
-                    Descripción del servicio 1...
-                </MudText>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="width:100%; height:100%;">
+            <MudCardMedia Image="/Images/Services/InvestigacionAnalisis.jpg" Style="background-size:contain; height:200px;cursor:pointer" Class="mt-3" @onclick="@(() => Navigate("ResearchAndAnalysisDetails"))" />
+            <MudCardContent @onclick="@(() => Navigate("ResearchAndAnalysisDetails"))">
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" Align="Align.Center" @onclick="@(() => Navigate("ResearchAndAnalysisDetails"))">Investigación y Análisis</MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/ResearchAndAnalysisDetails">Saber mas!!!</a>
             </MudCardContent>
         </MudCard>
     </MudItem>
-    <MudItem xs="12" sm="6" md="4">
-        <MudCard Elevation="5">
-            <MudCardContent>
-                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 2</MudText>
-                <MudText Typo="Typo.body2">
-                    Descripción del servicio 2...
-                </MudText>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="width:100%; height:100%;">
+            <MudCardMedia Image="/Images/Services/InteligenciaEmpresarial.jpg" Style="background-size:contain; height:200px;cursor:pointer" Class="mt-3" @onclick="@(() => Navigate("BIAndTechnology"))" />
+            <MudCardContent @onclick="@(() => Navigate("BIAndTechnology"))">
+                <MudText Typo="Typo.h5" Align="Align.Center" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" @onclick="@(() => Navigate("BIAndTechnology"))">Inteligencia Empresarial y Tecnología</MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/BIAndTechnology">Saber mas!!!</a>
             </MudCardContent>
         </MudCard>
     </MudItem>
-    <MudItem xs="12" sm="6" md="4">
-        <MudCard Elevation="5">
-            <MudCardContent>
-                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 3</MudText>
-                <MudText Typo="Typo.body2">
-                    Descripción del servicio 3...
-                </MudText>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="width:100%; height:100%;">
+            <MudCardMedia Image="/Images/Services/GestionProyectos.jpg" Style="background-size:contain; height:200px;cursor:pointer" Class="mt-3" @onclick="@(() => Navigate("ProjectManagementAndConsultingDetails"))" />
+            <MudCardContent @onclick="@(() => Navigate("ProjectManagementAndConsultingDetails"))">
+                <MudText Typo="Typo.h5" Align="Align.Center" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" @onclick="@(() => Navigate("ProjectManagementAndConsultingDetails"))">Gestión de Proyectos y Consultoría</MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/ProjectManagementAndConsultingDetails">Saber mas!!!</a>
             </MudCardContent>
         </MudCard>
     </MudItem>
-    <MudItem xs="12" sm="6" md="4">
-        <MudCard Elevation="5">
-            <MudCardContent>
-                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 4</MudText>
-                <MudText Typo="Typo.body2">
-                    Descripción del servicio 4...
-                </MudText>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="width:100%; height:100%;">
+            <MudCardMedia Image="/Images/Services/DesarrolloEmpresarial.jpg" Style="background-size:contain; height:200px;cursor:pointer" Class="mt-3" @onclick="@(() => Navigate("ProfessionalDevelopmentDetails"))" />
+            <MudCardContent @onclick="@(() => Navigate("ProfessionalDevelopmentDetails"))">
+                <MudText Typo="Typo.h5" Align="Align.Center" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" @onclick="@(() => Navigate("ProfessionalDevelopmentDetails"))">Desarrollo Profesional</MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/ProfessionalDevelopmentDetails">Saber mas!!!</a>
             </MudCardContent>
         </MudCard>
     </MudItem>
-    <MudItem xs="12" sm="6" md="4">
-        <MudCard Elevation="5">
-            <MudCardContent>
-                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 5</MudText>
-                <MudText Typo="Typo.body2">
-                    Descripción del servicio 5...
-                </MudText>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="width:100%; height:100%;">
+            <MudCardMedia Image="/Images/Services/ServicioDatos.jpg" Style="background-size:contain; height:200px;cursor:pointer" Class="mt-3" @onclick="@(() => Navigate("DataServicesDetails"))" />
+            <MudCardContent @onclick="@(() => Navigate("DataServicesDetails"))">
+                <MudText Typo="Typo.h5" Align="Align.Center" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" @onclick="@(() => Navigate("DataServicesDetails"))">Servicios de Datos</MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/DataServicesDetails">Saber mas!!!</a>
             </MudCardContent>
         </MudCard>
     </MudItem>
-    <MudItem xs="12" sm="6" md="4">
-        <MudCard Elevation="5">
-            <MudCardContent>
-                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap">Servicio 6</MudText>
-                <MudText Typo="Typo.body2">
-                    Descripción del servicio6...
-                </MudText>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="width:100%; height:100%;">
+            <MudCardMedia Image="/Images/Services/HerramientaRecursos.jpg" Style="background-size:contain; height:200px;cursor:pointer" Class="mt-3" @onclick="@(() => Navigate("ToolsAndResourcesDetails"))" />
+            <MudCardContent @onclick="@(() => Navigate("ToolsAndResourcesDetails"))">
+                <MudText Typo="Typo.h5" Align="Align.Center" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap; cursor:pointer;" @onclick="@(() => Navigate("ToolsAndResourcesDetails"))">Herramientas y Recursos</MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/ToolsAndResourcesDetails">Saber mas!!!</a>
             </MudCardContent>
         </MudCard>
     </MudItem>
+    @* <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="background-color:lightgreen; width:100%; height:100%;">
+            <MudCardContent @onclick="@(() => Navigate("ResearchAndAnalysisDetails"))">
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" @onclick="@(() => Navigate("ResearchAndAnalysisDetails"))">Investigación y Análisis</MudText>
+                <MudText Typo="Typo.body2" Style="cursor:pointer;" Class="mt-2" Align="Align.Justify">
+                    Ofrecemos una amplia gama de servicios de investigación y análisis de datos, incluyendo encuestas por
+                    muestreo, estudios de actitudes y opiniones, análisis de mercado, estudios de factibilidad, estadística,
+                    metodología y análisis detallado para proporcionar información valiosa que respalde la toma de
+                    decisiones informadas.
+                </MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/ResearchAndAnalysisDetails">Saber mas!!!</a>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="background-color:#E57373; width:100%; height:100%;">
+            <MudCardContent @onclick="@(() => Navigate("BIAndTechnology"))">
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" @onclick="@(() => Navigate("BIAndTechnology"))">Inteligencia Empresarial y Tecnología</MudText>
+                <MudText Typo="Typo.body2" Style="cursor:pointer;" Class="mt-2" Align="Align.Justify">
+                    Nuestros servicios de inteligencia empresarial abarcan desde la implementación de sistemas de
+                    inteligencia de negocios (Business Intelligence) hasta servicios profesionales de empresa y
+                    administrativos, asesoramiento especializado en inteligencia empresarial, y aplicaciones avanzadas de
+                    aprendizaje profundo (Deep Learning), machine learning y data mining para optimizar el rendimiento
+                    empresarial.
+                </MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/BIAndTechnology">Saber mas!!!</a>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="background-color:#E6EE9C; width:100%; height:100%;">
+            <MudCardContent @onclick="@(() => Navigate("ProjectManagementAndConsultingDetails"))">
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" @onclick="@(() => Navigate("ProjectManagementAndConsultingDetails"))">Gestión de Proyectos y Consultoría</MudText>
+                <MudText Typo="Typo.body2" Style="cursor:pointer;" Class="mt-2" Align="Align.Justify">
+                    Proporcionamos servicios de gestión de proyectos especializados, consultoría de negocios y
+                    administración corporativa, asesoría de gestión estratégica y servicios integrales de gestión para ayudar
+                    a las organizaciones a alcanzar sus objetivos y mejorar su eficiencia operativa.
+                </MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/ProjectManagementAndConsultingDetails">Saber mas!!!</a>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="background-color:#CE93D8; width:100%; height:100%;">
+            <MudCardContent @onclick="@(() => Navigate("ProfessionalDevelopmentDetails"))">
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" @onclick="@(() => Navigate("ProfessionalDevelopmentDetails"))">Desarrollo Profesional</MudText>
+                <MudText Typo="Typo.body2" Style="cursor:pointer;" Class="mt-2" Align="Align.Justify">
+                    Proporcionamos servicios de gestión de proyectos especializados, consultoría de negocios y
+                    administración corporativa, asesoría de gestión estratégica y servicios integrales de gestión para ayudar
+                    a las organizaciones a alcanzar sus objetivos y mejorar su eficiencia operativa.
+                </MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/ProfessionalDevelopmentDetails">Saber mas!!!</a>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="background-color:#A1887F; width:100%; height:100%;">
+            <MudCardContent @onclick="@(() => Navigate("DataServicesDetails"))">
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap;cursor:pointer;" @onclick="@(() => Navigate("DataServicesDetails"))">Servicios de Datos</MudText>
+                <MudText Typo="Typo.body2" Style="cursor:pointer;" Class="mt-2" Align="Align.Justify">
+                    Nuestros servicios de datos abarcan desde la implementación de sistemas de almacenamiento de datos
+                    hasta el procesamiento, estandarización y conversión de datos, así como servicios especializados de
+                    análisis de bases de datos para garantizar la integridad y calidad de la información.
+                </MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/DataServicesDetails">Saber mas!!!</a>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4" Style="display:flex;">
+        <MudCard Elevation="5" Style="background-color:#B3E5FC; width:100%; height:100%;">
+            <MudCardContent @onclick="@(() => Navigate("ToolsAndResourcesDetails"))">
+                <MudText Typo="Typo.h5" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap; cursor:pointer;" @onclick="@(() => Navigate("ToolsAndResourcesDetails"))">Herramientas y Recursos</MudText>
+                <MudText Typo="Typo.body2" Style="cursor:pointer;" Class="mt-2" Align="Align.Justify">
+                    Proporcionamos herramientas y recursos especializados, como formularios y cuestionarios de negocios,
+                    para ayudar a nuestros clientes en la recopilación y análisis de datos de manera efectiva y eficiente.
+                </MudText>
+                <a class="d-flex justify-content-end mt-4" href="/services/ToolsAndResourcesDetails">Saber mas!!!</a>
+            </MudCardContent>
+        </MudCard>
+    </MudItem> *@
     <!-- Agrega más elementos MudItem según sea necesario -->
 </MudGrid>
 
+@code {
+    void Navigate(string route)
+    {
+        Navigation.NavigateTo($"/services/{route}");
+    }
 
-    @*  <MudCardActions>
-        <MudGrid Spacing="1" Justify="Justify.SpaceBetween" Class="pa-2">
-        <MudItem xs="8">
-        @if (item.ShowPrice)
-        {
-        <MudText Style="font-weight:bold">@priceFormatted</MudText>
-        }
-        else
-        {
-        <MudText  Class="text-muted">@priceNotAvailableMessage</MudText>
-        }
-        </MudItem>
-        @if (itemExist)
-        {
-        <MudItem Class="pr-4 align-items-center">
-        <StepInput QuantityItem="quantityItem" AddStep="@(()=>{quantityItem+=1;})" SubtractStep="@(()=>{quantityItem-=1;})" SubtractAllStep="SubtractAll" AddRangeStep="Add" />
-        </MudItem>
-        }
-        <MudItem xs="12" lg="@(itemExist ? 12 : 4)" sm="@(itemExist ? 12 : 4)">
-        @if (itemExist)
-        {
-        <MudGrid>
-
-        <MudItem xs="6">
-        <MudButton FullWidth="true" Variant="Variant.Filled" Color="Color.Success" OnClick="@(()=>Add())">
-        <MudIcon Icon="@Icons.Material.Rounded.Check" />
-        </MudButton>
-        </MudItem>
-
-        <MudItem xs="6">
-        <MudButton FullWidth="true" Variant="Variant.Filled" Color="Color.Error" OnClick="SubtractAll">
-        <MudIcon Icon="@Icons.Material.Rounded.RemoveShoppingCart" />
-        </MudButton>
-        </MudItem>
-
-        </MudGrid>
-        }
-        else
-        {
-        <MudButton FullWidth="true" Variant="Variant.Filled" Color="Color.Info" OnClick="AddPreviewItem">
-        <MudIcon Icon="@Icons.Material.Rounded.AddShoppingCart" />
-        </MudButton>
-        }
-        </MudItem>
-        </MudGrid>
-
-
-        </MudCardActions> *@
-
-    @code {
-    [Parameter]
-    public int CountService { get; set; }
 }

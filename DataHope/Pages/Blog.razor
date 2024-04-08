@@ -1,0 +1,110 @@
+﻿@* @page "/blog" *@
+@using LibraryDataModel
+@using System.Text.RegularExpressions
+
+@inject Data.BlogService blogService
+@inject Data.UserPreferencesService userPreferencesService
+@* @inject Helper.StateContainer stateContainer *@
+@inject AuthenticationStateProvider authenticationStateProvider
+
+<div class="container mt-10">
+
+    @* @if (stateContainer.isExistUserInCosmosDB)
+    {
+        <MudContainer Class="d-flex justify-content-end">
+            <MudButton Href="/blog/formPost" Color="Color.Info">Agregar Post</MudButton>
+        </MudContainer>
+    } *@
+    <MudContainer Class="d-flex justify-content-end">
+        <MudButton Href="/blog/formPost" Color="Color.Info">Agregar Post</MudButton>
+    </MudContainer>
+   
+
+
+    @foreach (var blog in Blogs)
+    {
+
+        <a href="/article/@blog.Id">
+            <div class="row">
+                <div class="col-4">
+                    <img class="w-100" style="width:80px; height:130px" src="@blog.Image" />
+                </div>
+                <div class="col-8">
+                    <h1>@blog.Title</h1>
+                    <br />
+
+                    @* @transformText(@blog.Introduction); *@
+
+                    @foreach (var item in @blog.Introduction.Split("<br />"))
+                    {
+                        <p>@item</p>
+                    }
+
+                </div>
+            </div>
+        </a>
+
+
+        <hr />
+        <br />
+    }
+
+
+
+
+
+
+
+</div>
+
+
+
+@code {
+    UserPreferencesModel userPreferencesModel = new UserPreferencesModel();
+    IEnumerable<BlogModel> Blogs = new List<BlogModel>();
+    private bool isExistUserCosmosDB { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // getUser();
+
+        var test = await blogService.GetBlogs();
+
+        Blogs = await blogService.GetBlogs();
+
+    }
+
+    private async void getUser()
+    {
+        // var userPreferencesModel = new UserPreferencesModel();
+        // var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
+        var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
+        // var _email = HelperFunctions.GetAuthenticatedUserEmail(authState);
+        var email = authState.User.Identity.Name;
+        userPreferencesModel = await userPreferencesService.GetUserPreferences(email);
+
+        // if (userPreferencesModel.Email != null)
+        // {
+        //     stateContainer.isExistUserInCosmosDB = true;
+        // }
+
+    }
+
+    // private async Task<string> transformText(string text)
+    // {
+    //     var textTransformed = Regex.Replace(text, @"\r?\n|\r", "<br />");
+
+    //     return textTransformed;
+    // }
+
+    // private async Task<List<BlogModel>> Getblogs()
+    // {
+
+    //     var test = await blogService.GetBlogs();
+
+    //     Blogs = test.ToList();
+
+    //     return Blogs;
+    // }
+
+}

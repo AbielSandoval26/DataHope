@@ -1,0 +1,92 @@
+﻿@page "/blog/formPost"
+@using LibraryDataModel
+@using System.Web
+@using System.Text.RegularExpressions
+@inject ISnackbar Snackbar
+@inject Data.BlogService blogService
+
+<MudContainer Fixed=true Class="row d-flex justify-content-center ">
+
+    <MudItem lg="4" xxl="4" Class="col">
+        <MudCard Class="mt-8">
+            <MudText Typo="Typo.h3">Entrada al blog</MudText>
+            <MudForm Model="@model" @ref="@form">
+                <MudCardContent>
+                    <MudTextField @bind-Value="model.Title"
+                                  For="@(() => model.Title)"
+                                  Immediate="true"
+                                  Label="Titulo" />
+
+                    <MudTextField @bind-Value="model.Introduction"
+                                  For="@(() => model.Introduction)"
+                                  Immediate="true"
+                                  Label="Mensaje introductorio" />
+
+                    <MudTextField  @bind-Value="model.Body"
+                                  For="@(() => model.Body)"
+                                  Immediate="true"
+                                  Variant="Variant.Outlined" Lines="3" 
+                                  Label="Cuerpo del Blog" />
+
+                    <MudTextField @bind-Value="model.Image"
+                                  For="@(() => model.Image)"
+                                  Immediate="true"
+                                  Label="URL de la Imagen" />
+
+                </MudCardContent>
+            </MudForm>
+            <MudCardActions>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Submit())">Enviar post</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudContainer>
+
+
+@code {
+
+
+
+    MudForm form;
+
+    BlogModel model = new BlogModel();
+
+
+    public class blogPost
+    {
+        public Guid id { get; set; } = new Guid();
+        public string CosmosEntityName = "blog";
+        public string Title { get; set; }
+        public string Introduction { get; set; }
+        public string Body { get; set; }
+        public string Image { get; set; }
+    }
+
+    public class OrderModel
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Message { get; set; }
+        public string CourseInfo { get; set; }
+    }
+
+
+    private async Task Submit()
+    {
+        // Guid gui = new();
+
+        model.Id = Guid.NewGuid().ToString();
+        model.CosmosEntityName = "blog";
+
+        model.Body = Regex.Replace(model.Body, @"\r?\n|\r", "<br />");
+
+        await blogService.AddBlog(model);
+        Snackbar.Add("Entrada enviada!", Severity.Success);
+
+
+
+        model = new();
+
+
+    }
+}

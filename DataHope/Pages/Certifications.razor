@@ -1,0 +1,43 @@
+﻿@page "/certifications"
+@inject NavigationManager Navigation
+
+<style>
+    body {
+        background-image: url('./Images/background.png');
+        background-size: 100%;
+    }
+</style>
+
+@* <h3>Certifications</h3> *@
+<MudText Typo="Typo.h2" Class="text-white">Formaciones</MudText>
+
+<br/>
+<br/>
+<MudGrid Spacing="1" Class="pa-2">
+    <MudItem xs="12" sm="6" md="4" lg="3">
+        <MudCard Elevation="5">
+            <MudCardMedia Image="https://certjoin.com/wp-content/uploads/2023/04/Big-Data-Certified-Associate-%E2%80%93-BDCA.png" Style="background-size:contain; height:200px;cursor:pointer" Class="mt-3" @onclick="@(() => Navigate("bigDataAsociado"))" />
+            <MudCardContent @onclick="@(() => Navigate("bigDataAsociado"))">
+                <MudText Typo="Typo.h5" Align="Align.Justify" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap; cursor:pointer">Certificado en Big Data Asociado</MudText>
+                <MudText Typo="Typo.body2" Align="Align.Justify" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap; cursor:pointer">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est.</MudText>
+                <a class="d-flex justify-content-end mt-4" href="/certifications/bigDataAsociado">ver mas</a>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" sm="6" md="4" lg="3">
+        <MudCard Elevation="5">
+            <MudCardMedia Image="https://certjoin.com/wp-content/uploads/2023/04/Data-Analytics-Certified-Associate-1.png" Style="background-size:contain; height:200px;" Class="mt-3" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5" Align="Align.Justify" Style="text-overflow:ellipsis;overflow:hidden;white-space:pre-wrap">Asociado certificado en análisis de datos</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+
+@code {
+    void Navigate(string route)
+    {
+        Navigation.NavigateTo($"/certifications/{route}");
+    }
+}
